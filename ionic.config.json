@@ -1,0 +1,7 @@
+{
+  "name": "xkit_module",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
