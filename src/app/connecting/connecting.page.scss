@@ -16,3 +16,36 @@ ion-icon {
         color: black;
     }
 }
+
+#passwordInput{
+  width: 80%;
+  margin-top: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #08FAF3;
+  border: 4px solid white;
+  font-size: 35px;
+  text-align: center;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+}
+
+.sc-ion-input-md-h{
+  --placeholder-opacity: .8;
+}
+
+#downloadButton{
+  width: 80%;
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  border: 4px solid white;
+  color: black;
+}
+
+#img3{
+  width: auto;
+  margin-left: 35%;
+  align-self: center;
+  background: none;
+}
