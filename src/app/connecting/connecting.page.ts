@@ -5,12 +5,19 @@ audio.onended = function(){
   const alert = document.createElement('ion-alert');
   alert.header = '통화가 종료되었습니다.';
   alert.subHeader = '';
-  alert.message = '통화를 다시하려면 뒤로가기를 눌러주세요.';
+  alert.message = '다시걸기를 누르시면 긴급상황실과 다시 연결됩니다.';
   alert.buttons = [
     {
-      text: '확인',
+      text: '다시걸기',
       handler: () => {
-        console.log('ended');
+        audio.play();
+        console.log('recall');
+      }
+    },
+    {
+      text: '취소',
+      handler: () => {
+        console.log('canceled');
       }
     }
   ];
