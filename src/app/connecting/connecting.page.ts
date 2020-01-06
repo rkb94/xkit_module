@@ -73,13 +73,13 @@ export class ConnectingPage implements OnInit {
 
   checkPassword($event){
     this.password = $event;
-    if(this.password == "5073629" || this.password == "5073629"){
+    if(this.password == "9938" || this.password == "9938"){
       this.router.navigate(['/home']);
     } else {
       const alert = document.createElement('ion-alert');
-      alert.header = '전화번호가 틀렸습니다!';
+      alert.header = '비밀번호가 틀렸습니다!';
       alert.subHeader = '';
-      alert.message = '전화번호를 다시 입력해주세요.';
+      alert.message = '비밀번호를 다시 입력해주세요.';
       alert.buttons = [
         {
           text: '확인',
