@@ -73,7 +73,7 @@ export class ConnectingPage implements OnInit {
 
   checkPassword($event){
     this.password = $event;
-    if(this.password == "SIB32W" || this.password == "sib32w"){
+    if(this.password == "5073629" || this.password == "5073629"){
       this.router.navigate(['/home']);
     } else {
       const alert = document.createElement('ion-alert');
