@@ -15,11 +15,11 @@
     <ion-card-header>
       <ion-card-title id="textContent" color="light" class="ion-text-center">
         엑스파일러 요원은<br>
-        하단에 지문을 스캔하여<br>
+        하단에 지문을 3초간 스캔하여<br>
         신원을 인증하시오.<br>
       </ion-card-title>
     </ion-card-header>
-    <ion-progress-bar id="progressBar" type="determinate" color="secondary" [value]="percentage"></ion-progress-bar>
-    <button id="img3" style="width: 80%;" (press)="onPress($event)" (pressup)="onPressUp($event)"><img class="borderImage" src="assets/imgs/A-1.gif" alt=""></button>
+    <ion-progress-bar id="progressBar" type="determinate" color="success" [value]="percentage"></ion-progress-bar>
+    <button id="img3" style="width: 80%;" (click)="errorAlert($event)" (press)="onPress($event)" (pressup)="onPressUp($event)"><img class="borderImage" src="assets/imgs/A-1.gif" alt=""></button>
   </ion-card>
 </ion-content>

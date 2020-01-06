@@ -33,9 +33,26 @@ export class HomePage {
     this.stopInterval();
     console.log("none");
   }
+
+  errorAlert($event){
+    const alert = document.createElement('ion-alert');
+    alert.header = '손가락을 떼었다가 지문을 다시 인식해주세요.';
+    alert.subHeader = '';
+    alert.message = '';
+    alert.buttons = [
+      {
+        text: '확인',
+        handler: () => {
+          console.log("success");
+        }
+      }
+    ];
+    document.body.appendChild(alert);
+    return alert.present();
+  }
   
   success(){
-    if(this.percentage > 1 && flag == 0){
+    if(this.percentage >= 1.0 && flag == 0){
       flag = 1;
       const alert = document.createElement('ion-alert');
       alert.header = '엑스파일러 신원확인 결과';
