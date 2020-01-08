@@ -38,7 +38,8 @@ export class ConnectingPage implements OnInit {
   
   constructor(public router: Router) { }
 
-  password: string;
+  password1: string;
+  password2: string;
   
   ngOnInit() {
   }
@@ -71,9 +72,10 @@ export class ConnectingPage implements OnInit {
     audio.currentTime = 0;
   }
 
-  checkPassword($event){
-    this.password = $event;
-    if(this.password == "SIB32W" || this.password == "sib32w"){
+  checkPassword($event1, $event2){
+    this.password1 = $event1;
+    this.password2 = $event2;
+    if((this.password1 == "SBW" || this.password1 == "sbw") && (this.password2 == "32db" || this.password2 == "32DB")){
       this.router.navigate(['/home']);
     } else {
       const alert = document.createElement('ion-alert');
@@ -88,7 +90,6 @@ export class ConnectingPage implements OnInit {
       document.body.appendChild(alert);
       return alert.present();
     }
-    console.log(this.password);
   }
 
 }

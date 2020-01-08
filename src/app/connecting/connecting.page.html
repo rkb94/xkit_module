@@ -13,7 +13,9 @@
   <img style="margin-top: 10%;" src="/assets/imgs/connecting.png" alt="">
   <img src="/assets/imgs/A-3.gif" alt="">
   <button id="img3" style="width: 30%;" (click)="audioPlay()"><img src="assets/imgs/refresh.png" alt=""></button>
-  <ion-input #passwordInput id="passwordInput" [value]="password" type="text" maxlength="6" placeholder="⬛⬛⬛⬛⬛⬛" value="text"></ion-input>
-  <ion-button (click)="checkPassword(passwordInput.value)" color="vividBlue" id="downloadButton" expand="full" size="large">Download</ion-button>
+  <ion-input #passwordInput1 id="passwordInput1" [value]="password1" type="text" maxlength="3" placeholder="⬛⬛⬛" value="text"></ion-input>
+  <p id="bar">-</p>
+  <ion-input #passwordInput2 id="passwordInput2" [value]="password2" type="text" maxlength="4" placeholder="⬛⬛⬛⬛" value="text"></ion-input>
+  <ion-button (click)="checkPassword(passwordInput1.value, passwordInput2.value)" color="vividBlue" id="downloadButton" expand="full" size="large">Download</ion-button>
   <img style="width: 20%; margin-left: 40%; margin-top: 3%;" src="/assets/imgs/xfiler_light.png" alt="">
 </ion-content>
