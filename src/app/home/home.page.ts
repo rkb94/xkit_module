@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, NavController } from '@ionic/angular';
+import { HammerGestureConfig } from '@angular/platform-browser';
 
 var flag = 0;
 
@@ -36,9 +37,9 @@ export class HomePage {
 
   errorAlert($event){
     const alert = document.createElement('ion-alert');
-    alert.header = '손가락을 떼었다가 지문을 다시 인식해주세요.';
+    alert.header = '지문인식에 실패했습니다!';
     alert.subHeader = '';
-    alert.message = '';
+    alert.message = '천천히 지문을 다시 인식해주세요.';
     alert.buttons = [
       {
         text: '확인',
@@ -54,6 +55,7 @@ export class HomePage {
   success(){
     if(this.percentage >= 1.0 && flag == 0){
       flag = 1;
+      this.stopInterval();
       const alert = document.createElement('ion-alert');
       alert.header = '엑스파일러 신원확인 결과';
       alert.subHeader = '';
@@ -65,6 +67,7 @@ export class HomePage {
             this.percentage = 0.05;
             flag = 0;
             console.log("success");
+            this.stopInterval();
           }
         }
       ];
