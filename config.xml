@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.xcapeDangerousInvitation1" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>위험한 초대-A</name>
-    <description>엑스케이프 위험한 초대</description>
+<widget id="io.ionic.xcape3869-ANALYSIS-3" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>삼팔륙구-ANALYSIS-3</name>
+    <description>엑스케이프 삼팔륙구</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />

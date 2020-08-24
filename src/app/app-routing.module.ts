@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { 
     path: '',
-    redirectTo: 'home', 
+    loadChildren: () => import('./password/password.module').then( m => m.PasswordPageModule),
     pathMatch: 'full' 
   },
   { 
@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'connecting',
     loadChildren: () => import('./connecting/connecting.module').then( m => m.ConnectingPageModule)
+  },
+  {
+    path: 'password',
+    loadChildren: () => import('./password/password.module').then( m => m.PasswordPageModule)
   },
 ];
 
