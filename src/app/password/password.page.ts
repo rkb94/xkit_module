@@ -34,7 +34,7 @@ export class PasswordPage implements OnInit {
   inputPassword = "";
   initial: "";
   price = "";
-  realPassword = "019120";
+  realPassword = "JCY210000";
   maxLength = this.realPassword.length;
 
   constructor(private router: Router, public alertController: AlertController, public vibration: Vibration) { }
@@ -68,7 +68,7 @@ export class PasswordPage implements OnInit {
   }
 
   checkInitialAndPrice() {
-    if ((this.initial) == this.realPassword) {
+    if ((this.initial + this.price) == this.realPassword) {
       return true;
     } else {
       return false;
@@ -94,7 +94,7 @@ export class PasswordPage implements OnInit {
 
   go() {
     this.vibration.vibrate(15);
-    if (this.checkPassword(this.inputPassword)) {
+    if (this.checkInitialAndPrice()) {
       this.router.navigate(['home']);
     } else {
       this.presentAlert();
