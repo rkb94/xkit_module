@@ -9,7 +9,8 @@ const routes: Routes = [
   },
   { 
     path: 'home', 
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
   {
     path: 'page',
     loadChildren: () => import('./page/page.module').then( m => m.PagePageModule)
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'password',
     loadChildren: () => import('./password/password.module').then( m => m.PasswordPageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
   },
 ];
 

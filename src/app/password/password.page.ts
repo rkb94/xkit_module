@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { NumberValueAccessor } from '@angular/forms';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 @Component({
   selector: 'app-password',
@@ -32,9 +32,12 @@ export class PasswordPage implements OnInit {
   //   {name:'OptionC', value:'12', imgUrl:'../../assets/imgs/icon/12.png', checked:false}
   // ];
   inputPassword = "";
-  realPassword = "13184";
+  initial: "";
+  price = "";
+  realPassword = "019120";
+  maxLength = this.realPassword.length;
 
-  constructor(private router: Router, public alertController: AlertController) { }
+  constructor(private router: Router, public alertController: AlertController, public vibration: Vibration) { }
 
   async presentAlert() {
     const alert = await this.alertController.create({
@@ -47,12 +50,28 @@ export class PasswordPage implements OnInit {
     await alert.present();
   }
 
+  onInitialValueChange(event) {
+    this.initial = event.target.value.toUpperCase();
+  }
+
+  onPriceValueChange(event) {
+    this.price = event.target.value.toUpperCase();
+  }
+
   onValueChange(value) {
-    if (this.inputPassword.length == 5) {
+    if (this.inputPassword.length == this.maxLength) {
       return false;
     } else {
       this.inputPassword += value;
       console.log(this.inputPassword);
+    }
+  }
+
+  checkInitialAndPrice() {
+    if ((this.initial) == this.realPassword) {
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -64,12 +83,17 @@ export class PasswordPage implements OnInit {
     }
   }
 
+  check() {
+    this.vibration.vibrate(15);
+    if (this.checkInitialAndPrice()) {
+      this.router.navigate(['home']);
+    } else {
+      this.presentAlert();
+    }
+  }
+
   go() {
-    // if (value) {
-    //   this.router.navigate(['home']);
-    // } else {
-    //   this.presentAlert();
-    // }
+    this.vibration.vibrate(15);
     if (this.checkPassword(this.inputPassword)) {
       this.router.navigate(['home']);
     } else {
@@ -78,10 +102,12 @@ export class PasswordPage implements OnInit {
   }
 
   inputNumeric(number) {
+    this.vibration.vibrate(15);
     this.onValueChange(number);
   }
 
   deleteNumeric() {
+    this.vibration.vibrate(15);
     this.inputPassword = this.inputPassword.slice(0, -1);
   }
 
