@@ -34,7 +34,7 @@ export class PasswordPage implements OnInit {
   inputPassword = "";
   initial: "";
   price = "";
-  realPassword = "019120";
+  realPassword = "액살오방실";
   maxLength = this.realPassword.length;
 
   constructor(private router: Router, public alertController: AlertController, public vibration: Vibration) { }
