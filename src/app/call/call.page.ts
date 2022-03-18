@@ -14,7 +14,7 @@ export class CallPage implements OnInit {
   }
 
   go(){
-    this.router.navigate(['/connecting']);
+    this.router.navigate(['/home']);
   }
 
 }

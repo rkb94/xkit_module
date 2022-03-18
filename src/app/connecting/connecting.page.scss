@@ -16,3 +16,13 @@ ion-icon {
         color: black;
     }
 }
+
+ion-content.background{
+  --background: url(../../assets/imgs/background.png) 0 0/100% 100% no-repeat;
+}
+
+img{
+  width: auto;
+  margin: auto;
+  display: block;
+}

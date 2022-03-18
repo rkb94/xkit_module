@@ -3,6 +3,37 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { NumberValueAccessor } from '@angular/forms';
 
+var audio = new Audio('assets/mp3/audio.mp3');
+var visibility = true;
+
+audio.onended = function(){
+  const alert = document.createElement('ion-alert');
+  alert.header = '듣기가 종료되었습니다.';
+  alert.subHeader = '';
+  alert.message = '';
+  alert.buttons = [
+    {
+      text: '다시듣기',
+      handler: () => {
+        audio.play();
+        console.log('recall');
+      }
+    },
+    {
+      text: '취소',
+      handler: () => {
+        document.getElementById('tape-image').style.display = "block";
+        document.getElementById('tape-play').style.display = "none";
+        document.getElementById('unClicked').style.display = "block";
+        document.getElementById('clicked').style.display = "none";
+        console.log('canceled');
+      }
+    }
+  ];
+  document.body.appendChild(alert);
+  return alert.present();
+};
+
 @Component({
   selector: 'app-password',
   templateUrl: './password.page.html',
@@ -32,7 +63,7 @@ export class PasswordPage implements OnInit {
   //   {name:'OptionC', value:'12', imgUrl:'../../assets/imgs/icon/12.png', checked:false}
   // ];
   inputPassword = "";
-  realPassword = "13184";
+  realPassword = "완전범죄";
 
   constructor(private router: Router, public alertController: AlertController) { }
 
@@ -57,6 +88,7 @@ export class PasswordPage implements OnInit {
   }
 
   checkPassword(input) {
+    console.log(input);
     if (this.realPassword == input) {
       return true;
     } else {
@@ -107,5 +139,45 @@ export class PasswordPage implements OnInit {
 
   ngOnInit() {
   }
+  
+  ionViewWillEnter(){
+    // audio.play();
+    let tape: HTMLElement = document.getElementById('tape-image');
+    
+    if (tape.style.display == "none" || visibility) {
+      this.play();
+    } else {
+      this.unPlay();
+    }
 
+    visibility = false;
+  }
+
+  play(){
+    let tape: HTMLElement = document.getElementById('tape-image');
+    let tapePlay: HTMLElement = document.getElementById('tape-play');
+    let unClicked: HTMLElement = document.getElementById('unClicked');
+    let clicked: HTMLElement = document.getElementById('clicked');
+    tape.setAttribute("style", "width: 86%; display: block;");
+    tapePlay.setAttribute("style", "width: 86%; display: none;");
+    unClicked.setAttribute("style", "width: 86%; display: block;");
+    clicked.setAttribute("style", "width: 86%; display: none;");
+    this.ionViewWillLeave();
+  }
+
+  unPlay(){
+    let tape: HTMLElement = document.getElementById('tape-image');
+    let tapePlay: HTMLElement = document.getElementById('tape-play');
+    let unClicked: HTMLElement = document.getElementById('unClicked');
+    let clicked: HTMLElement = document.getElementById('clicked');
+    tape.setAttribute("style", "width: 86%; display: none;");
+    tapePlay.setAttribute("style", "width: 86%; display: block;");
+    unClicked.setAttribute("style", "width: 86%; display: none;");
+    clicked.setAttribute("style", "width: 86%; display: block;");
+  }
+
+  ionViewWillLeave(){
+    audio.pause();
+    audio.currentTime = 0;
+  }
 }

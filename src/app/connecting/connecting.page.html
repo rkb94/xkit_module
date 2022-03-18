@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="secondary">
     <ion-buttons slot="start">
       <ion-icon slot="end" class="big black" src="/assets/imgs/xfiler.svg"></ion-icon>
@@ -7,10 +7,13 @@
       <ion-icon slot="start" class="bigger black" src="/assets/imgs/call.svg"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content color="grey">
-  <img style="margin-top: 10%;" src="/assets/imgs/connecting.png" alt="">
-  <img src="/assets/imgs/A-3.gif" alt="">
-  <img style="width: 20%; margin-left: 40%; margin-top: 50%;" src="/assets/imgs/xfiler_light.png" alt="">
+<ion-content class="background">
+  <img style="width: 100%;" src="/assets/imgs/A-1.png" alt="">
+  <img id="tape-image" src="/assets/imgs/tape-image.jpg" alt="" style="width: 95%;">
+  <img id="tape-play" src="/assets/imgs/tape-play.gif" alt="" style="width: 95%; display: none;">
+  <img id="unClicked" src="/assets/imgs/controller.png" alt="" (click)="ionViewWillEnter()" style="width: 95%;">
+  <img id="clicked" src="/assets/imgs/clicked.png" alt="" (click)="ionViewWillEnter()" style="width: 95%; display: none;">
+  <img style="width: 100%;" src="/assets/imgs/A-2.png" alt="">
 </ion-content>
